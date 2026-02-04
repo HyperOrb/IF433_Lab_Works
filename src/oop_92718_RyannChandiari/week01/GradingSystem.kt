@@ -14,9 +14,12 @@ fun main() {
     }
     println("Grade kamu: $grade")
 
-    // Panggil fungsi status di sini
     println("Status: ${calculateStatus(score)}")
+
+    // Checkpoint 5: Null Safety
+    val studentId: String? = null
+    val idLength = studentId?.length ?: 0
+    println("Panjang ID: $idLength")
 }
 
-// Fungsi dibuat DI LUAR main()
 fun calculateStatus(score: Int) = if (score > 75) "Lulus" else "Tidak Lulus"
