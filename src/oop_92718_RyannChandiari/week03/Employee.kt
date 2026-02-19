@@ -18,8 +18,11 @@ class Employee(val name: String) {
         println("Kinerja $name meningkat! Rating: $performanceRating")
     }
 
-    // Function khusus untuk print nilai private
     fun printStatus() {
         println("Karyawan: $name, Rating: $performanceRating")
     }
+
+    // Pajak dihitung 10% dari gaji saat ini
+    val tax: Double
+        get() = salary * 0.1
 }
