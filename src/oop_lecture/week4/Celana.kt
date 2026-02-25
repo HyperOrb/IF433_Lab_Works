@@ -4,7 +4,7 @@ class Celana : Pakaian() {
     private var stock: Int = 20
 
     fun update_stock() {
-        super.harga = stock * 150000
-        println("Stock celana tersedia $stock, harga total stok: ${super.harga}")
+        super.harga = stock * 120
+        println("Stock $stock cellaannaa Terupdate, harga ${super.harga}")
     }
 }
