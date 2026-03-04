@@ -41,4 +41,34 @@ fun main() {
 
     // Memanggil hitungLuas(Double) -> Lingkaran
     println("Luas Lingkaran (7.0): ${math.hitungLuas(7.0)}")
+
+    // --- BAGIAN 3: TUGAS MANDIRI 2 (PAYMENT SYSTEM) ---
+    println("\n=== TEST PAYMENT SYSTEM (POLYMORPHISM & SMART CAST) ===")
+
+    // Checkpoint 10: Setup Objek
+    val myEWallet = EWallet("RyannOVO", 50000.0) // Saldo awal 50rb
+    val myCreditCard = CreditCard("RyannBCA", 100000.0) // Limit 100rb
+
+    // Polymorphic Collection
+    val paymentMethods: List<PaymentMethod> = listOf(myEWallet, myCreditCard)
+
+    val billAmount = 75000.0 // Tagihan 75rb
+
+    for (method in paymentMethods) {
+        println("--- Memproses pembayaran Rp $billAmount dengan ${method.accountName} ---")
+
+        // Panggil method polymorphic (akan gagal untuk EWallet karena saldo 50rb < 75rb)
+        method.processPayment(billAmount)
+
+        // Checkpoint 11: Smart Casting Challenge (Auto Recovery)
+        // Logika: Jika metode ini aslinya EWallet DAN saldonya masih kurang, lakukan TopUp
+        if (method is EWallet && method.balance < billAmount) {
+            println(">> [SYSTEM] Saldo tidak cukup. Melakukan Auto-TopUp Rp 50.000...")
+            method.topUp(50000.0) // Smart Cast membolehkan panggil fungsi topUp milik EWallet
+
+            println(">> [SYSTEM] Mencoba pembayaran ulang...")
+            method.processPayment(billAmount) // Coba bayar lagi
+        }
+        println()
+    }
 }
