@@ -1,6 +1,7 @@
 package oop_92718_RyannChandiari.week05
 
 fun main() {
+    // --- BAGIAN 1: GUIDED LAB (PEGAWAI) ---
     val dosen1 = Dosen("Pak Alex", "0123456")
     val admin1 = Admin("Bu Siti")
 
@@ -26,4 +27,18 @@ fun main() {
         }
         println()
     }
+
+    // --- BAGIAN 2: TUGAS MANDIRI 1 (MATH HELPER) ---
+    // Checkpoint 6: Test MathHelper Overloading
+    println("=== TEST MATH HELPER (OVERLOADING) ===")
+    val math = MathHelper()
+
+    // Memanggil hitungLuas(Int) -> Persegi
+    println("Luas Persegi (5): ${math.hitungLuas(5)}")
+
+    // Memanggil hitungLuas(Int, Int) -> Persegi Panjang
+    println("Luas Persegi Panjang (4, 6): ${math.hitungLuas(4, 6)}")
+
+    // Memanggil hitungLuas(Double) -> Lingkaran
+    println("Luas Lingkaran (7.0): ${math.hitungLuas(7.0)}")
 }
