@@ -1,6 +1,11 @@
 package oop_92718_RyannChandiari.week07
 
 fun main() {
-    // ERROR: Cannot access '<init>': it is private in 'NetworkClient'
-    val client = NetworkClient("https://api.umn.ac.id")
+    println("=== TEST SINGLETON ===")
+    println("Status: ${DatabaseManager.connectionStatus}")
+    DatabaseManager.connect()
+
+    println("\n=== TEST COMPANION OBJECT ===")
+    val client = NetworkClient.createClient() // Instansiasi lewat Factory
+    client.connect()
 }
