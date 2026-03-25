@@ -1,0 +1,9 @@
+package oop_92718_RyannChandiari.week07
+
+enum class ItemRarity(val dropChance: Int) {
+    COMMON(70),
+    UNCOMMON(20),
+    RARE(5),
+    EPIC(3),
+    LEGENDARY(1)
+}
