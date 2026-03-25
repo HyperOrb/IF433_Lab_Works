@@ -36,4 +36,25 @@ fun main() {
         ApiResponse.Loading -> "Tampilkan Spinner" // Resolusi!
     }
     println(uiMessage)
+
+    // Checkpoint 18
+    println("\n=== TUGAS MANDIRI: RPG SYSTEM ===")
+    GameManager.startGame()
+    GameManager.startGame()
+
+    // Checkpoint 19
+    println("\nDrop chance LEGENDARY: ${ItemRarity.LEGENDARY.dropChance}%")
+    val playerWeapon = Weapon.forgeStarterSword()
+    println("Senjata awal dibuat: ${playerWeapon.item.name} (Damage: ${playerWeapon.item.damage})")
+
+    // Checkpoint 20
+    println("\n[Blacksmith] Meng-upgrade senjata...")
+    val upgradedItem = playerWeapon.item.copy(damage = 25)
+    println("Senjata diupgrade: ${upgradedItem.name} (Damage baru: ${upgradedItem.damage})")
+
+    println("\n--- SIMULASI PERTARUNGAN ---")
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
