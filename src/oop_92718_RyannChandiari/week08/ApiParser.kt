@@ -23,4 +23,17 @@ class ApiParser {
             else -> null // Tipe tidak dikenal, return null
         }
     }
+
+    // --- TAMBAHAN CHECKPOINT 18 ---
+    fun checkout(product: Product) {
+        // Ekstrak ID dari Sealed Class menggunakan when
+        val id = when (product) {
+            is Product.Electronic -> product.id
+            is Product.Clothing -> product.id
+        }
+
+        // Panggil Java Service. Karena kita YAKIN balasan Java tidak akan null, kita berani pakai !!
+        val transactionId = JavaPaymentService.processPayment(id)!!
+        println("Berhasil checkout dengan nomor resi: $transactionId")
+    }
 }
