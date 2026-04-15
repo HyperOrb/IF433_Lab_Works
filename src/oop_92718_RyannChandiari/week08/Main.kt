@@ -18,4 +18,31 @@ fun main() {
     } ?: "Transaksi Invalid: Harga belum di-set!"
 
     println(receipt)
+
+    // --- TAMBAHAN CHECKPOINT 6, 7, 8 ---
+    println("\n=== TEST SAFE CASTING ===")
+
+    // Checkpoint 6: Koleksi data campuran
+    val mixedData: List<Any> = listOf(
+        "Smartphone",
+        1500000,
+        UserProfile("Andi", null),
+        "Laptop",
+        4500000.0
+    )
+
+    // Checkpoint 7: Filter dengan as?
+    for (item in mixedData) {
+        val text = item as? String
+        // Hanya cetak jika cast sukses (text tidak null)
+        text?.let {
+            println("Ditemukan teks: ${it.uppercase()}")
+        }
+    }
+
+    // Checkpoint 8: Safe Cast + Elvis Fallback
+    val someObject: Any = 100 // Tipe aslinya Integer
+    // Coba cast ke String. Jika gagal (null), ganti dengan "Unknown String"
+    val safeString = someObject as? String ?: "Unknown String"
+    println("Hasil cast fallback: $safeString")
 }
