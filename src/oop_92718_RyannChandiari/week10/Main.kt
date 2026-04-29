@@ -11,4 +11,16 @@ fun main() {
     println("\n=== TEST MULTIPLE PARAMETERS ===")
     val itemPrice = PairBox("Bitcoin", 65000)
     println("Aset: ${itemPrice.key}, Harga: ${itemPrice.value} USD")
+
+    // --- TAMBAHAN CHECKPOINT 7 ---
+    println("\n=== TEST GENERIC FUNCTIONS ===")
+    printData(3.14)
+    val result = processData("Stable Coin")
+    println("Hasil proses: $result")
+
+    // --- TAMBAHAN CHECKPOINT 10 ---
+    println("\n=== TEST CONSTRAINTS ===")
+    val math = MathBox(10.5, 20)
+    println("Total: ${math.sum()}")
+    println("Terbesar: ${getMax(45, 90)}")
 }
